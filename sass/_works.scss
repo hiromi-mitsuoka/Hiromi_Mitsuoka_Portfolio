@@ -1,4 +1,4 @@
-// mobile first
+// pc first
 $breakpoints: (
  'sm': 'screen and (min-width: 576px)',
  'md': 'screen and (min-width: 768px)',
@@ -15,17 +15,25 @@ $breakpoints: (
 }
 
 // vw
-// @function vw($width, $px) {
+@function vw($width, $px) {
 
-//   @return $px / $width * 100vw;
-// }
+  @return $px / $width * 100vw;
+}
 
-//parameter
+// common color
+$text-black: #333333;
+$blue: #3F51B5;
+$red: #E81919;
+$bg-gray: #EFEFEF;
+
+// common font-size
+$big-fz: 60px;
+$middle-fz: 38px;
+$small-fz: 16px;
 
 body{
    color: $text-black;
    font-family: YuGothic,'Yu Gothic',sans-serif;
-   color: red;
  }
 
 h1 {
