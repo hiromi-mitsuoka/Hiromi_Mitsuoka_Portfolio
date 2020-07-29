@@ -1,0 +1,32 @@
+// mobile first
+$breakpoints: (
+ 'sm': 'screen and (min-width: 576px)',
+ 'md': 'screen and (min-width: 768px)',
+ 'lg': 'screen and (min-width: 992px)',
+ 'xl': 'screen and (min-width: 1200px)'
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+//map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// vw
+// @function vw($width, $px) {
+
+//   @return $px / $width * 100vw;
+// }
+
+//parameter
+
+body{
+   color: $text-black;
+   font-family: YuGothic,'Yu Gothic',sans-serif;
+ }
+
+h1 {
+  color: red;
+}
