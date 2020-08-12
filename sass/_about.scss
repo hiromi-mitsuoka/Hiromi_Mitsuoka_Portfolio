@@ -1,0 +1,153 @@
+// pc first
+$breakpoints: (
+ 'sm': 'screen and (min-width: 576px)',
+ 'md': 'screen and (min-width: 768px)',
+ 'lg': 'screen and (min-width: 992px)',
+ 'xl': 'screen and (min-width: 1200px)'
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+//map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// vw
+@function vw($width, $px) {
+
+  @return $px / $width * 100vw;
+}
+
+// common color
+$color-text: #333333;
+
+//common width
+$layout-width-inner: 1080px;
+
+
+
+// common font-size
+$big-fz: 17px;
+$middle-fz: 12px;
+$small-fz: 8px;
+
+body{
+  color: $color-text;
+  font-family: 'Futura',YuGothic,'Yu Gothic',sans-serif;
+  min-height: 100vh;
+  position: relative;
+  letter-spacing: 3px;
+
+}
+
+// -----
+// 共通パーツ
+// -----
+.inner{
+  max-width: $layout-width-inner;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+
+// -----
+// header
+// -----
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+
+.header__inner{
+  @extend .inner;
+
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.header__name{
+  @include mq(md){
+    font-size: $middle-fz;
+    margin-left: 50px;
+  }
+  @include mq(lg){
+    font-size: $big-fz;
+  }
+  @include mq(xl){
+    margin-left: 0;
+  }
+
+  h1{
+    font-weight: normal;
+  }
+}
+
+.header__nav{
+  margin-left: auto; //right: 0;
+  ul{
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    li{
+      list-style: none;
+      margin-right: 30px;
+
+      &:last-child{
+        margin-right: 0;
+        @include mq(md){
+          margin-right: 50px;
+        }
+        @include mq(xl){
+          margin-right: 0;
+        }
+      }
+
+      a{
+        color: $color-text;
+        text-decoration: none;
+        @include mq(md){
+          font-size: $middle-fz;
+        }
+        @include mq(lg){
+          font-size: $big-fz;
+        }
+        @include mq(xl){
+          font-size: $big-fz;
+        }
+
+        &:hover{
+          color: #aaa;
+          text-decoration: none;
+          transition: all 0.5s ease 0s;
+          -webkit-transition: all 0.5s ease 0s;
+          -moz-transition: all 0.5s ease 0s;
+          -ms-transition: all 0.5s ease 0s;
+          -o-transition: all 0.5s ease 0s;
+        }
+      }
+    }
+  }
+}
+
+// -----
+// about
+// -----
+.about{
+  padding: 150px;
+  padding-top: 200px;
+  letter-spacing: 5px;
+
+  .marginTop{
+    margin-top: 40px;
+  }
+}

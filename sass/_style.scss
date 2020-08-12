@@ -21,21 +21,133 @@ $breakpoints: (
 }
 
 // common color
-$text-black: #333333;
-$blue: #3F51B5;
-$red: #E81919;
-$bg-gray: #EFEFEF;
+$color-text: #333333;
+
+//common width
+$layout-width-inner: 1080px;
+
+
 
 // common font-size
-$big-fz: 60px;
-$middle-fz: 38px;
-$small-fz: 16px;
+$big-fz: 17px;
+$middle-fz: 12px;
+$small-fz: 8px;
 
 body{
-   color: $text-black;
-   font-family: YuGothic,'Yu Gothic',sans-serif;
- }
+  color: $color-text;
+  font-family: 'Futura',YuGothic,'Yu Gothic',sans-serif;
+  min-height: 100vh;
+  position: relative;
+  letter-spacing: 3px;
 
-h1 {
-  color: red;
+}
+
+// -----
+// 共通パーツ
+// -----
+.inner{
+  max-width: $layout-width-inner;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+
+// -----
+// header
+// -----
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+}
+
+.header__inner{
+  @extend .inner;
+
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.header__name{
+  @include mq(md){
+    font-size: $middle-fz;
+    margin-left: 50px;
+  }
+  @include mq(lg){
+    font-size: $big-fz;
+  }
+  @include mq(xl){
+    margin-left: 0;
+  }
+
+  h1{
+    font-weight: normal;
+  }
+}
+
+.header__nav{
+  margin-left: auto; //right: 0;
+  ul{
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    li{
+      list-style: none;
+      margin-right: 30px;
+
+      &:last-child{
+        margin-right: 0;
+        @include mq(md){
+          margin-right: 50px;
+        }
+        @include mq(xl){
+          margin-right: 0;
+        }
+      }
+
+      a{
+        color: $color-text;
+        text-decoration: none;
+        @include mq(md){
+          font-size: $middle-fz;
+        }
+        @include mq(lg){
+          font-size: $big-fz;
+        }
+        @include mq(xl){
+          font-size: $big-fz;
+        }
+
+        &:hover{
+          color: #aaa;
+          text-decoration: none;
+          transition: all 0.5s ease 0s;
+          -webkit-transition: all 0.5s ease 0s;
+          -moz-transition: all 0.5s ease 0s;
+          -ms-transition: all 0.5s ease 0s;
+          -o-transition: all 0.5s ease 0s;
+        }
+      }
+    }
+  }
+}
+
+// shader
+#defaultCanvas0{
+  position: absolute;
+  z-index: -1;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
 }
