@@ -1,9 +1,9 @@
 // pc first
 $breakpoints: (
- 'sm': 'screen and (min-width: 576px)',
- 'md': 'screen and (min-width: 768px)',
- 'lg': 'screen and (min-width: 992px)',
- 'xl': 'screen and (min-width: 1200px)'
+ 'sm': 'screen and (max-width: 576px)',
+ 'md': 'screen and (max-width: 768px)',
+ 'lg': 'screen and (max-width: 992px)',
+ 'xl': 'screen and (max-width: 1200px)'
 ) !default;
 
 //メディアクエリ用のmixinを定義。デフォ値はmd
@@ -12,12 +12,6 @@ $breakpoints: (
   @media #{map-get($breakpoints, $breakpoint)} {
     @content;
   }
-}
-
-// vw
-@function vw($width, $px) {
-
-  @return $px / $width * 100vw;
 }
 
 // common color
@@ -29,9 +23,9 @@ $layout-width-inner: 1080px;
 
 
 // common font-size
-$big-fz: 17px;
-$middle-fz: 12px;
-$small-fz: 8px;
+$big-fz: 35px;
+$middle-fz: 23px;
+$small-fz: 15px;
 
 body{
   color: $color-text;
@@ -76,24 +70,28 @@ header{
 }
 
 .header__name{
-  @include mq(md){
-    font-size: $middle-fz;
+
+  @include mq('xl'){
     margin-left: 50px;
-  }
-  @include mq(lg){
-    font-size: $big-fz;
-  }
-  @include mq(xl){
-    margin-left: 0;
   }
 
   h1{
+    font-size: $big-fz;
     font-weight: normal;
+
+    @include mq('xl'){
+      font-size: $big-fz - 5px;
+    }
   }
 }
 
 .header__nav{
   margin-left: auto; //right: 0;
+
+  @include mq('xl'){
+    margin-right: 50px;
+  }
+
   ul{
     display: flex;
     align-items: center;
@@ -105,25 +103,15 @@ header{
 
       &:last-child{
         margin-right: 0;
-        @include mq(md){
-          margin-right: 50px;
-        }
-        @include mq(xl){
-          margin-right: 0;
-        }
       }
 
       a{
         color: $color-text;
         text-decoration: none;
-        @include mq(md){
-          font-size: $middle-fz;
-        }
-        @include mq(lg){
-          font-size: $big-fz;
-        }
-        @include mq(xl){
-          font-size: $big-fz;
+        font-size: $middle-fz;
+
+        @include mq('xl'){
+          font-size: $middle-fz - 5px;
         }
 
         &:hover{
@@ -148,6 +136,11 @@ header{
   margin-top: 200px;
   display: inline-flex;
   flex-wrap: wrap;
+
+  @include mq('xl'){
+    margin-right: 50px;
+    margin-left: 50px;
+  }
 }
 
 .work-img{
@@ -158,6 +151,27 @@ header{
 
   &:nth-child(5n){
     margin-right: 0;
+  }
+
+  @include mq('md'){
+    width: calc(33.33333% - 20px * 2 / 3);
+
+    &:nth-child(5n){
+      margin-right: 20px;
+    }
+
+    &:nth-child(3n){
+      margin-right: 0;
+    }
+  }
+
+  @include mq('sm'){
+    width: 100%;
+    margin-right: 0;
+
+    &:nth-child(5n){
+      margin-right: 0;
+    }
   }
 
   a{

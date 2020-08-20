@@ -28,31 +28,31 @@ header {
   margin-bottom: 40px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1200px) {
   .header__name {
-    font-size: 12px;
     margin-left: 50px;
   }
 }
 
-@media screen and (min-width: 992px) {
-  .header__name {
-    font-size: 17px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .header__name {
-    margin-left: 0;
-  }
-}
-
 .header__name h1 {
+  font-size: 35px;
   font-weight: normal;
+}
+
+@media screen and (max-width: 1200px) {
+  .header__name h1 {
+    font-size: 30px;
+  }
 }
 
 .header__nav {
   margin-left: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .header__nav {
+    margin-right: 50px;
+  }
 }
 
 .header__nav ul {
@@ -70,38 +70,15 @@ header {
   margin-right: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .header__nav ul li:last-child {
-    margin-right: 50px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .header__nav ul li:last-child {
-    margin-right: 0;
-  }
-}
-
 .header__nav ul li a {
   color: #333333;
   text-decoration: none;
+  font-size: 23px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1200px) {
   .header__nav ul li a {
-    font-size: 12px;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .header__nav ul li a {
-    font-size: 17px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .header__nav ul li a {
-    font-size: 17px;
+    font-size: 18px;
   }
 }
 
@@ -121,6 +98,13 @@ header {
   flex-wrap: wrap;
 }
 
+@media screen and (max-width: 1200px) {
+  .works-img {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+}
+
 .work-img {
   width: calc(20% - 20px * 4 / 5);
   margin-right: 20px;
@@ -130,6 +114,28 @@ header {
 
 .work-img:nth-child(5n) {
   margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .work-img {
+    width: calc(33.33333% - 20px * 2 / 3);
+  }
+  .work-img:nth-child(5n) {
+    margin-right: 20px;
+  }
+  .work-img:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .work-img {
+    width: 100%;
+    margin-right: 0;
+  }
+  .work-img:nth-child(5n) {
+    margin-right: 0;
+  }
 }
 
 .work-img a:hover {
